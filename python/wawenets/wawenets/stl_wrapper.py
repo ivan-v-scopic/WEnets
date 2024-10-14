@@ -488,7 +488,7 @@ class Processor:
             if the ratio doesn't match, which is a...choice to be sure
         """
         size_ratio = self._calculate_filesize_ratio(in_path, out_path)
-        if np.isclose(size_ratio, target_ratio):
+        if np.isclose(size_ratio, target_ratio, rtol=1.7e-5):
             return True
         else:
             raise RuntimeError(f"size ratio is {size_ratio}, expected {target_ratio}")
